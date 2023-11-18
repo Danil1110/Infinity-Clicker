@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кликер</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #FFA500, #FF4500, #FFD700);
+        }
+
+        #clicker-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #score {
+            font-size: 36px;
+            margin-bottom: 20px;
+            margin-top: -60px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #coin img {
+            width: 150px;
+            height: 150px;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+
+        #progress-container {
+            width: 80%; /* Уменьшенная ширина шкалы */
+            max-width: 300px; /* Максимальная ширина шкалы */
+            margin-top: 20px;
+            margin-bottom: 20px; /* Опущена шкала на 20 пикселей */
+        }
+
+        #progress-bar {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 40px;
+            background: linear-gradient(to right, #FFC0CB, #FFD700); /* Градиент для шкалы */
+            position: relative;
+            transition: background-color 0.5s ease-in-out, height 0.5s ease-in-out; /* Анимация изменения цвета и высоты шкалы */
+        }
+
+        #progress-value {
+            height: 100%;
+            border-radius: 5px;
+            margin-top: 40px;
+            background: linear-gradient(to right, #FFC0CB, #FFD700); /* Градиент для анимации шкалы */
+            transition: width 0.5s ease-in-out;
+        }
+
+        #charge-label {
+            position: absolute;
+            top: -25px;
+            right: 0;
+            color: white;
+
+            font-weight: bold; /* Увеличение жирности шрифта */
+        }
+    </style>
+</head>
+<body>
+    <div id="clicker-container">
+        <div id="score">0</div>
+        <div id="coin"><img src="INFTCOIN.png" alt="Coin"></div>
+        <div id="progress-container">
+            <div id="progress-bar">
+                <div id="progress-value"></div>
+                <div id="charge-label">1000/1000</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const coin = document.getElementById('coin');
+            const scoreDisplay = document.getElementById('score');
+            const progressBar = document.getElementById('progress-value');
+            const chargeLabel = document.getElementById('charge-label');
+
+            let score = localStorage.getItem('score') || 0;
+            let charge = 1000;
+
+            coin.addEventListener('click', () => {
+                if (charge > 0) {
+                    score++;
+                    charge--;
+                    localStorage.setItem('score', score);
+                    updateScore();
+                    updateProgressBar();
+                    animateClick();
+                }
+            });
+
+            const updateScore = () => {
+                scoreDisplay.textContent = score;
+            };
+
+            const updateProgressBar = () => {
+                const progressPercentage = (charge / 1000) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                chargeLabel.textContent = `${charge}/1000`;
+                // Изменение цвета и высоты шкалы на серый и 0 при уменьшении заряда
+                if (charge === 0) {
+                    progressBar.style.backgroundColor = 'gray';
+                    progressBar.style.height = '0';
+                } else {
+                    progressBar.style.backgroundColor = 'linear-gradient(to right, #FFC0CB, #FFD700)';
+                    progressBar.style.height = '10px';
+                }
+            };
+
+            const animateClick = () => {
+                coin.firstChild.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    coin.firstChild.style.transform = 'scale(1)';
+                }, 100);
+            };
+
+            const replenishCharge = () => {
+                if (charge < 1000) {
+                    charge++;
+                    updateProgressBar();
+                }
+            };
+
+            setInterval(replenishCharge, 2000); // Восполнение 1 единицы каждые 2 секунды
+
+            updateScore();
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html>
