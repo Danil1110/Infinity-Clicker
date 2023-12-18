@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -153,7 +153,7 @@
         <div id="progress-container">
             <div id="charge-label"> ⚡️ 1000/1000</div>
             <!-- Add missing ID 'progress-bar' -->
-            <div id="progress-bar">
+<!--             <div id="progress-bar">
                 <div id="progress-value"></div>
             </div>
         </div>
@@ -313,4 +313,69 @@
 
 </body>
 
+</html> -->
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #3498db, #2980b9, #8a2be2); /* Градиентный фон */
+        }
+
+        #container {
+            text-align: center;
+            margin: 50px auto;
+            max-width: 600px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 170px auto 0 auto; /* Отступ вниз */
+        }
+
+        #text {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(to right, #800080, #00008b); /* Градиент для кнопки */
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 40px; /* Отступ вниз */
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <img src="show1.jpeg" alt="Фото 1">
+    <div id="text">
+        <p><b>Заказать шоу по физике онлайн</b></p>
+    </div>
+    <a href="#" class="button" onclick="orderShow()">Заказать шоу</a>
+</div>
+
+<script>
+    function orderShow() {
+        var container = document.getElementById('container');
+        container.innerHTML = '<img src="show2.png" alt="Фото 2"><p><b>Глядите, получилоС!</b></p><p1><b>Спасибо за заказ шоу!</b></p1>';
+    }
+</script>
+
+</body>
 </html>
+
+
