@@ -17,62 +17,89 @@
             justify-content: center;
             text-align: center;
             color: #fff; /* Белый цвет текста */
+            font-family: 'Oceanwide Primer', sans-serif; /* Измененный шрифт */
+        }
+
+        p, p1, h1 {
+            font-family: 'Oceanwide Primer', sans-serif; /* Измененный шрифт */
         }
 
         p {
-            font-size: 32px; /* Увеличиваем размер текста "Добро пожаловать" */
-            font-weight: bold; /* Делаем текст жирным */
-            margin-top: -20px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
-            margin-bottom:-40px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+            font-size: 42px;
+            font-weight: bold;
+            margin-top: -100px;
+            margin-bottom: 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
         }
 
         p1 {
-            font-size: 28px; /* Увеличиваем размер текста "Добро пожаловать" */
-            font-weight: bold; /* Делаем текст жирным */
-            margin-top: 60px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
-            margin-bottom: 10px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+            font-size: 38px;
+            font-weight: bold;
+            margin-top: 90px;
+            margin-bottom: -50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: absolute;
         }
 
         h1 {
-            font-size: 34px; /* Увеличиваем размер текста "Добро пожаловать" */
-            font-weight: bold; /* Делаем текст жирным */
-            margin-left: -35px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
-            margin-top: -320px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
-            margin-bottom: 100px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+            font-size: 95px;
+            font-weight: bold;
+            margin-left: -125px;
+            margin-top: -330px;
+            margin-bottom: 100px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: absolute;
         }
 
         #logo {
-            width: 65px; /* Устанавливаем ширину логотипа */
-            height: auto; /* Сохраняем соотношение сторон */
-            margin-right: -135px; /* Увеличиваем отступ слева для логотипа */
-            margin-top: -353px; /* Увеличиваем отступ сверху для логотипа */
+            position: absolute;
+            width: 175px;
+            height: auto;
+            margin-right: -320px;
+            margin-top: -400px;
         }
 
-        .gradient-button {
-            margin-top: 10px; /* Увеличиваем отступ сверху для кнопок */
-            margin-bottom: 10px; /* Увеличиваем отступ снизу для кнопок */
-            padding: 10px 20px; /* Уменьшаем отступы внутри кнопок */
-            border: 2px solid #000; /* Добавляем черную обводку */
-            color: #fff; /* Белый цвет текста на кнопке */
-            font-size: 24px; /* Увеличиваем размер текста на кнопке */
-            font-weight: bold; /* Делаем текст на кнопке жирным */
+        .gradient-button1 {
+            margin-top: 10px; /* Увеличьте это значение для опускания кнопок ниже */
+            margin-bottom: -170px;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
             cursor: pointer;
-            border-radius: 10px; /* Увеличиваем скругление углов кнопок */
+            border-radius: 10px;
             background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
             transition: background 0.3s ease;
-            width: 270px; /* Увеличиваем ширину кнопок */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
-            line-height: 20px; /* Увеличиваем межстрочное расстояние */
+            width: 270px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+            line-height: 20px;
         }
 
-        .gradient-button:hover {
+        .gradient-button2 {
+            margin-top: 180px; /* Увеличьте это значение для опускания кнопок ниже */
+            margin-bottom: -320px;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+            background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+            transition: background 0.3s ease;
+            width: 270px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+            line-height: 20px;
+        }
+
+        .gradient-button1, .gradient-button2:hover {
             background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
         }
 
         .content-container {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,8 +115,8 @@
         <p1>Выберите язык:</p1>
 
         <!-- Градиентные кнопки -->
-        <button class="gradient-button">Русский</button>
-        <button class="gradient-button">English</button>
+        <button class="gradient-button1">Русский</button>
+        <button class="gradient-button2">English</button>
     </div>
 
     <!-- Логотип -->
