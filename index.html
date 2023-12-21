@@ -46,7 +46,7 @@
             font-size: 75px;
             font-weight: bold;
             margin-left: -95px;
-            margin-top: -440px;
+            margin-top: -400px;
             margin-bottom: 100px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             position: absolute;
@@ -57,7 +57,7 @@
             width: 145px;
             height: auto;
             margin-right: -260px;
-            margin-top: -520px;
+            margin-top: -480px;
         }
 
         .gradient-button1 {
@@ -98,13 +98,52 @@
             background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
         }
 
-        .content-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
+.content-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 370px;
+}
+
+.options-container p {
+    font-size: 36px;
+    font-weight: bold;
+    /* Add this line to move only the text down by 70 pixels */
+}
+
+.options-container button {
+    margin-bottom: 60px; /* Add or adjust this value for the desired spacing */
+     margin-top: -40px;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+    transition: background 0.3s ease;
+    width: 270px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+    line-height: 20px;
+}
+
+.options-container button:hover {
+    background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
+}
+
+
+
     </style>
 </head>
 <body>
@@ -134,7 +173,43 @@
                 e.preventDefault();
             }
         });
-    </script>
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+        var russianButton = document.querySelector('.gradient-button1');
+        var englishButton = document.querySelector('.gradient-button2');
+        var p1Element = document.querySelector('p1');
+        var pElement = document.querySelector('p');
+        var textContainer = document.querySelector('.content-container');
+
+        function onLanguageButtonClick() {
+            // Скрываем необходимые элементы
+            russianButton.style.display = 'none';
+            englishButton.style.display = 'none';
+            p1Element.style.display = 'none';
+            pElement.style.display = 'none';
+
+            // Добавляем новые элементы
+            textContainer.innerHTML += `
+                <div class="options-container">
+                <p>Выберите опцию:</p>
+                <button class="gradient-button">О токене</button>
+                <button class="gradient-button">Игра-Кликер</button>
+                <button class="gradient-button">Токеномика</button>
+                <button class="gradient-button">Whitepaper</button>
+                <button class="gradient-button">Купить на DeDust.io</button>
+                <button class="gradient-button">Tonviewer</button>
+                </div>
+            `;
+        }
+
+        // Назначаем обработчик клика на кнопку "Русский" и "English"
+        russianButton.addEventListener('click', onLanguageButtonClick);
+        englishButton.addEventListener('click', onLanguageButtonClick);
+    });
+</script>
+
+
 </body>
 </html>
 
