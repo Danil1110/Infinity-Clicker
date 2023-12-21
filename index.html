@@ -314,67 +314,88 @@
 </body>
 
 </html> -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Infinity</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #3498db, #2980b9, #8a2be2); /* Градиентный фон */
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff; /* Белый цвет текста */
         }
 
-        #container {
-            text-align: center;
-            margin: 50px auto;
-            max-width: 600px;
+        h1, p {
+            font-size: 28px; /* Увеличиваем размер текста "Добро пожаловать" */
+            font-weight: bold; /* Делаем текст жирным */
+            margin-top: 5px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
+            margin-bottom: 10px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+        }
+
+        .gradient-button {
+            margin-top: 10px; /* Увеличиваем отступ сверху для кнопок */
+            margin-bottom: 10px; /* Увеличиваем отступ снизу для кнопок */
+            padding: 10px 20px; /* Уменьшаем отступы внутри кнопок */
+            border: 2px solid #000; /* Добавляем черную обводку */
+            color: #fff; /* Белый цвет текста на кнопке */
+            font-size: 24px; /* Увеличиваем размер текста на кнопке */
+            font-weight: bold; /* Делаем текст на кнопке жирным */
+            cursor: pointer;
+            border-radius: 10px; /* Увеличиваем скругление углов кнопок */
+            background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+            transition: background 0.3s ease;
+            width: 270px; /* Увеличиваем ширину кнопок */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+            line-height: 20px; /* Увеличиваем межстрочное расстояние */
+        }
+
+        .gradient-button:hover {
+            background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
         }
 
         img {
-            max-width: 65%;
-            height: auto;
-            display: block;
-            margin: 120px auto 0 auto; /* Отступ вниз */
-        }
-
-        #text {
-            margin-top: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-align: center;
-            text-decoration: none;
-            background: linear-gradient(to right, #800080, #00008b); /* Градиент для кнопки */
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 30px; /* Отступ вниз */
+            width: 520px; /* Увеличиваем ширину изображения */
+            height: 200px; /* Увеличиваем высоту изображения */
+            margin-bottom: 15px; /* Увеличиваем отступ снизу изображения */
         }
     </style>
 </head>
 <body>
+    <!-- Изображение -->
+    <img src="MAININFT.jpg" alt="Добро пожаловать">
 
-<div id="container">
-    <img src="https://shop.kp.ru/catalog/media/kpprosveshhenie/3/6/59928b88aae36.jpg" alt="Фото 1">
-    <div id="text">
-        <p><b>Заказать шоу по физике онлайн</b></p>
-    </div>
-    <a href="#" class="button" onclick="orderShow()">Заказать шоу</a>
-</div>
+    <!-- Ваш текст -->
+    <h1>Добро пожаловать!</h1>
+    <p>Выберите язык.</p>
 
-<script>
-    function orderShow() {
-        var container = document.getElementById('container');
-        container.innerHTML = '<img src="https://nauchniestati.ru/wp-content/uploads/2019/06/image7-min.png" alt="Фото 2"><p><b>Глядите, получилоС!</b></p><p1><b>Спасибо за заказ шоу!</b></p1>';
-    }
-</script>
+    <!-- Градиентные кнопки -->
+    <button class="gradient-button">Русский</button>
+    <button class="gradient-button">English</button>
 
+    <!-- Скрипт для отключения масштабирования с помощью JavaScript -->
+    <script>
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === '0' || e.key === 'Control' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+            }
+        });
+        document.addEventListener('wheel', function(e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
 
