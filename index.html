@@ -19,12 +19,36 @@
             color: #fff; /* Белый цвет текста */
         }
 
-        h1, p {
+        p {
+            font-size: 32px; /* Увеличиваем размер текста "Добро пожаловать" */
+            font-weight: bold; /* Делаем текст жирным */
+            margin-top: -20px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
+            margin-bottom:-40px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+        }
+
+        p1 {
             font-size: 28px; /* Увеличиваем размер текста "Добро пожаловать" */
             font-weight: bold; /* Делаем текст жирным */
-            margin-top: 5px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
+            margin-top: 60px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
             margin-bottom: 10px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+        }
+
+        h1 {
+            font-size: 34px; /* Увеличиваем размер текста "Добро пожаловать" */
+            font-weight: bold; /* Делаем текст жирным */
+            margin-left: -35px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
+            margin-top: -320px; /* Уменьшаем отступ сверху для текста "Выберите язык" */
+            margin-bottom: 100px; /* Увеличиваем отступ снизу для "Добро пожаловать" */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Добавляем тень для текста */
+        }
+
+        #logo {
+            width: 65px; /* Устанавливаем ширину логотипа */
+            height: auto; /* Сохраняем соотношение сторон */
+            margin-right: -135px; /* Увеличиваем отступ слева для логотипа */
+            margin-top: -353px; /* Увеличиваем отступ сверху для логотипа */
         }
 
         .gradient-button {
@@ -48,24 +72,28 @@
             background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
         }
 
-        img {
-            width: 520px; /* Увеличиваем ширину изображения */
-            height: 200px; /* Увеличиваем высоту изображения */
-            margin-bottom: 15px; /* Увеличиваем отступ снизу изображения */
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
-    <!-- Изображение -->
-    <img src="MAININFT.jpg" alt="Добро пожаловать">
+    <div class="content-container">
+        <!-- Ваш текст -->
+        <h1>Infinity</h1>
+        <p>Добро пожаловать!</p>
+        <p1>Выберите язык:</p1>
 
-    <!-- Ваш текст -->
-    <h1>Добро пожаловать!</h1>
-    <p>Выберите язык.</p>
+        <!-- Градиентные кнопки -->
+        <button class="gradient-button">Русский</button>
+        <button class="gradient-button">English</button>
+    </div>
 
-    <!-- Градиентные кнопки -->
-    <button class="gradient-button">Русский</button>
-    <button class="gradient-button">English</button>
+    <!-- Логотип -->
+    <img id="logo" src="LOGOINFT.png" alt="INFT">
 
     <!-- Скрипт для отключения масштабирования с помощью JavaScript -->
     <script>
@@ -82,7 +110,6 @@
     </script>
 </body>
 </html>
-
 
 
 <!-- <!DOCTYPE html>
