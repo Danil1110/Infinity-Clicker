@@ -10,7 +10,9 @@
             padding: 0;
             overflow: hidden;
             height: 100vh;
-            background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+            background: linear-gradient(to bottom right, blue, #3498db, #9b59b6, pink);
+
+
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -60,43 +62,44 @@
             margin-top: -470px;
         }
 
-        .gradient-button1 {
-            margin-top: 10px; /* Увеличьте это значение для опускания кнопок ниже */
-            margin-bottom: -170px;
-            padding: 10px 20px;
-            border: 2px solid #000;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 10px;
-            background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
-            transition: background 0.3s ease;
-            width: 270px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
-            line-height: 20px;
-        }
+.gradient-button1 {
+    margin-top: 10px;
+    margin-bottom: -170px;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+    transition: background 0.3s ease, margin 0.3s ease;
+    width: 270px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+    line-height: 20px;
+}
 
-        .gradient-button2 {
-            margin-top: 180px; /* Увеличьте это значение для опускания кнопок ниже */
-            margin-bottom: -320px;
-            padding: 10px 20px;
-            border: 2px solid #000;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 10px;
-            background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
-            transition: background 0.3s ease;
-            width: 270px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
-            line-height: 20px;
-        }
+.gradient-button2 {
+    margin-top: 180px;
+    margin-bottom: -320px;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
+    transition: background 0.3s ease, margin 0.3s ease;
+    width: 270px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+    line-height: 20px;
+}
 
-        .gradient-button1, .gradient-button2:hover {
-            background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
-        }
+.gradient-button1:hover,
+.gradient-button2:hover {
+    background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
+}
 
 .content-container {
     position: relative;
@@ -118,12 +121,11 @@
 .options-container p {
     font-size: 36px;
     font-weight: bold;
-    /* Add this line to move only the text down by 70 pixels */
 }
 
 .options-container button {
-    margin-bottom: 50px; /* Add or adjust this value for the desired spacing */
-     margin-top: -40px;
+    margin-bottom: 50px;
+    margin-top: -40px;
     padding: 10px 20px;
     border: 2px solid #000;
     color: #fff;
@@ -132,7 +134,7 @@
     cursor: pointer;
     border-radius: 10px;
     background: linear-gradient(to bottom right, #ffffff, #3498db, #9b59b6, #e74c3c);
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, margin 0.3s ease;
     width: 270px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
     line-height: 20px;
@@ -141,7 +143,6 @@
 .options-container button:hover {
     background: linear-gradient(to bottom right, #e74c3c, #9b59b6, #3498db, #ffffff);
 }
-
 
 
     </style>
@@ -163,54 +164,60 @@
 
     <!-- Скрипт для отключения масштабирования с помощью JavaScript -->
     <script>
+        var languageSuffix;  // Declare languageSuffix as a global variable
+
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === '0' || e.key === 'Control' || e.key === 'c' || e.key === 'C')) {
                 e.preventDefault();
             }
         });
+
         document.addEventListener('wheel', function(e) {
             if (e.ctrlKey) {
                 e.preventDefault();
             }
         });
 
-
         document.addEventListener('DOMContentLoaded', function () {
-        var russianButton = document.querySelector('.gradient-button1');
-        var englishButton = document.querySelector('.gradient-button2');
-        var p1Element = document.querySelector('p1');
-        var pElement = document.querySelector('p');
-        var textContainer = document.querySelector('.content-container');
+            var russianButton = document.querySelector('.gradient-button1');
+            var englishButton = document.querySelector('.gradient-button2');
+            var p1Element = document.querySelector('p1');
+            var pElement = document.querySelector('p');
+            var textContainer = document.querySelector('.content-container');
 
-        function onLanguageButtonClick() {
-            // Скрываем необходимые элементы
-            russianButton.style.display = 'none';
-            englishButton.style.display = 'none';
-            p1Element.style.display = 'none';
-            pElement.style.display = 'none';
+            function onLanguageButtonClick(isEnglish) {
+                russianButton.style.display = 'none';
+                englishButton.style.display = 'none';
+                p1Element.style.display = 'none';
+                pElement.style.display = 'none';
 
-            // Добавляем новые элементы
-            textContainer.innerHTML += `
-                <div class="options-container">
-                        <p>Выберите опцию:</p>
-                        <button class="gradient-button" onclick="window.open('aboutinfinityru.pdf', '_blank')">О Проекте</button>
-                        <button class="gradient-button" onclick="window.location.href='https://t.me/InfinityClickerBot'">Игра-Кликер</button>
-                        <button class="gradient-button" onclick="window.open('tokenomicsru.pdf', '_blank')">Токеномика</button>
+                // Set languageSuffix based on the selected language
+                languageSuffix = isEnglish ? 'en' : 'ru';
+
+                textContainer.innerHTML += `
+                    <div class="options-container">
+                        <p>Choose an option:</p>
+                        <button class="gradient-button" onclick="window.open('aboutinfinity' + (isEnglish ? 'en' : 'ru') + '.pdf', '_blank')">${isEnglish ? 'About Project' : 'О Проекте'}</button>
+                        <button class="gradient-button" onclick="window.location.href='https://t.me/InfinityClickerBot'">${isEnglish ? 'Game Clicker' : 'Игра-Кликер'}</button>
+                        <button class="gradient-button" onclick="window.open('tokenomics' + languageSuffix + '.pdf', '_blank')">${isEnglish ? 'Tokenomics' : 'Токеномика'}</button>
                         <button class="gradient-button" onclick="window.location.href='#'">Whitepaper</button>
-                        <button class="gradient-button" onclick="window.location.href='https://dedust.io/swap/EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c/EQDzCNIjlBhSHAWuNwga2mCPuNMEObaedJWSL_GSfzeNzY1B'">Купить на DeDust.io</button>
+                        <button class="gradient-button" onclick="window.location.href='https://dedust.io/swap/EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c/EQDzCNIjlBhSHAWuNwga2mCPuNMEObaedJWSL_GSfzeNzY1B'">${isEnglish ? 'Buy on DeDust.io' : 'Купить на DeDust.io'}</button>
                         <button class="gradient-button" onclick="window.location.href='https://tonviewer.com/EQDzCNIjlBhSHAWuNwga2mCPuNMEObaedJWSL_GSfzeNzY1B'">Tonviewer</button>
                     </div>
-            `;
-        }
+                `;
+            }
 
-        // Назначаем обработчик клика на кнопку "Русский" и "English"
-        russianButton.addEventListener('click', onLanguageButtonClick);
-        englishButton.addEventListener('click', onLanguageButtonClick);
-    });
-</script>
+            russianButton.addEventListener('click', function () {
+                onLanguageButtonClick(false);
+            });
+
+            englishButton.addEventListener('click', function () {
+                onLanguageButtonClick(true);
+            });
+        });
+    </script>
 </body>
 </html>
-
 
 
 
